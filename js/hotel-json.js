@@ -1,12 +1,13 @@
-var firebaseConfig = {
-  apiKey: "AIzaSyDjdVP2wSWz91dPgET3KIf4XbdxPB_2l1w",
-  authDomain: "javascriptdemo-237db.firebaseapp.com",
-  databaseURL: "https://javascriptdemo-237db.firebaseio.com",
-  projectId: "javascriptdemo-237db",
-  storageBucket: "javascriptdemo-237db.appspot.com",
-  messagingSenderId: "397768045903",
-  appId: "1:397768045903:web:64fc692aef3653b407013a",
-  measurementId: "G-9W77ZD235X"
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBoJ6-2VetXjIyotWfLsMCw6Vcd8dDKfqc",
+  authDomain: "buygroceries-7fcb9.firebaseapp.com",
+  databaseURL: "https://buygroceries-7fcb9.firebaseio.com",
+  projectId: "buygroceries-7fcb9",
+  storageBucket: "buygroceries-7fcb9.appspot.com",
+  messagingSenderId: "345609131270",
+  appId: "1:345609131270:web:894f01ad228a43c4d0ba87",
+  measurementId: "G-BYXJRM5H7J"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -28,12 +29,12 @@ $("input[type='button']").click(function(e) {
   // var cost = parseInt(inputJson["room"].slice(-3));
   // console.log("The cost for this reservation is " + night * cost);
 
-  /* save the data to database 
+  // save the data to database 
   firebase
     .firestore()
-    .collection("hotelreservation")
+    .collection("hotelInfo")
     .add(inputJson);
-*/
+
 
   /* clear the entry */
   $("form")[0].reset();
