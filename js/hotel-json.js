@@ -39,3 +39,6 @@ $("input[type='button']").click(function(e) {
   /* clear the entry */
   $("form")[0].reset();
 });
+
+
+

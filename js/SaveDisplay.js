@@ -12,7 +12,6 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
 // save the data
 $(".sampleSurvey input[type='submit']").click(function(e) {
   e.preventDefault();
@@ -28,13 +27,56 @@ $(".sampleSurvey input[type='submit']").click(function(e) {
   }
 
   console.log(inputJson);
-  
-  // save the data to database 
+
+  // save the data to database
   firebase
     .firestore()
     .collection("surveys")
     .add(inputJson);
-
 });
 
 // update the result in table
+var ans =0;
+var ans2 =0;
+var ans3 =0;
+var ans4 =0;
+var ans5 =0;
+
+firebase
+  .firestore()
+  .collection("surveys")
+  .onSnapshot(function(querySnapshot) {
+   // console.log(querySnapshot);
+    console.log(querySnapshot.size);
+    ans=0;
+    ans2=0;
+    ans3=0;
+    ans4=0;
+    ans5=0;
+
+    querySnapshot.forEach(doc =>{
+        console.log(doc.data());
+        console.log("TEST:"+doc.get("choice"));
+        console.log("TEST:"+doc.get("comm"));
+        if(doc.get("choice")=="A"){
+          ans++;
+        $("#ans1").html(ans);
+        }
+        if(doc.get("choice")=="B"){
+          ans2++;
+        $("#ans2").html(ans2);
+        }
+        if(doc.get("choice")=="C"){
+          ans3++;
+        $("#ans3").html(ans3);
+        }
+          if(doc.get("choice")=="D"){
+            ans4++
+        $("#ans4").html(ans4);
+          }
+          if(doc.get("choice")=="E"){
+            ans5++;
+        $("#ans5").html(ans5);
+          }
+    });
+  });
