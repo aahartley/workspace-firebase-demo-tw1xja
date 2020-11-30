@@ -23,21 +23,22 @@ $("#Login").submit(function(e){
   for (var i = 0; i < inputdata.length; i++) {
     var name = inputdata[i]["name"];
     var value = inputdata[i]["value"];
-    console.log(name + " " + value);
+    console.log("name"+name + " " + value);
     inputJson[name] = value;
   }
 
-  console.log(inputJson["username"]);
-  var email = inputJson["username"];
-var pass = inputJson["password"];
+  console.log("input"+inputJson["login"]);
+  var email = inputJson["login"];
+var pass = inputJson["pwd"];
 
 //sign in
-
-firebase.auth().signInWithEmailAndPassword(email,pass).then
-(success=>{
-  console.log("works");
+firebase
+    .auth()
+    .signInWithEmailAndPassword(email, pass)
+    .then(success => {
+  console.log("WORKS");
   let user = firebase.auth().currentUser;
-  console.log(user.displayName+" "+user.email+" "+user.emailVerified);
+  console.log("WORKS"+user.displayName+" "+user.email+" "+user.emailVerified);
 }).catch(error=>{
   var errorM = error.message;
   console.log(errorM);
